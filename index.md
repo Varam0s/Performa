@@ -11,7 +11,7 @@
 ## Installation  
 1. Download the modpack from [Modrinth].
     
-2. Install it in your Minecraft launcher.  
+2. Install it in your Modrinth App.  
 3. Enjoy the optimized performance!  
 
 
