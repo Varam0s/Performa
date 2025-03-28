@@ -7,7 +7,7 @@ Here, you will find information about installation, included mods, performance t
 - [Installation](installation.md)
 - [Performance Tips](performance.md)
 <div style="display: none;"> 
-  
+<!--   
   [Troubleshooting](troubleshooting.md)
   [FAQ](faq.md)
   
