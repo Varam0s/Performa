@@ -5,9 +5,8 @@ Here, you will find information about installation, included mods, performance t
 
 ## 📖 Wiki Contents
 - [Installation](installation.md)
-- [Mod List](mods.md)
 - [Performance Tips](performance.md)
-- [Troubleshooting](troubleshooting.md)
-- [FAQ](faq.md)
+<!--- [Troubleshooting](troubleshooting.md)
+- [FAQ](faq.md) -->
 
 Experience Minecraft with maximum performance! 🚀
