@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="docs/style.css">
+
 # Performa Modpack Wiki
 
 Welcome to the official wiki for the Performa Modpack!  
