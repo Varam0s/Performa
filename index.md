@@ -9,7 +9,8 @@
 
 
 ## Installation  
-1. Download the modpack from [Modrinth/CurseForge].  
+1. Download the modpack from [Modrinth].
+    
 2. Install it in your Minecraft launcher.  
 3. Enjoy the optimized performance!  
 
