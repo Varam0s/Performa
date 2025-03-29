@@ -16,4 +16,4 @@ Performa optimizes Minecraft for maximum performance, delivering higher FPS, fas
 
 🚀 **Experience Minecraft with maximum performance!**  
 
-© 2023 Varamos | MIT License
+© 2025 Varamos | MIT License
