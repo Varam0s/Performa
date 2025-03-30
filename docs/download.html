@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Performa Modpack</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #ffffff;
+            }
+            a {
+                color: #66ccff;
+            }
+        }
+        .download-button {
+            background-color: #1f883d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        async function fetchLatestModpack() {
+            try {
+                const response = await fetch("https://api.modrinth.com/v2/project/Jpn0aBDV/version?loaders=%5B%22fabric%22%5D");
+                const versions = await response.json();
+                const fabricVersion = versions.find(v => v.loaders.includes("fabric"));
+                if (fabricVersion && fabricVersion.files.length > 0) {
+                    window.location.href = fabricVersion.files[0].url;
+                } else {
+                    alert("No Fabric version found!");
+                }
+            } catch (error) {
+                console.error("Error fetching latest version:", error);
+                alert("Failed to fetch latest version. Please try again later.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Download Performa Modpack</h1>
+    <p>Click the button below to download the latest Fabric version of the Performa Modpack.</p>
+    <button class="download-button" onclick="fetchLatestModpack()">Download Latest Performa Modpack</button>
+    <br><br>
+    <a href="../index.html">Back to Home</a>
+</body>
+</html>
