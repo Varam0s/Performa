@@ -32,27 +32,28 @@
         }
     </style>
     <script>
-        async function fetchLatestModpack() {
+        async function fetchModpack(version) {
             try {
-                const response = await fetch("https://api.modrinth.com/v2/project/Jpn0aBDV/version?loaders=%5B%22fabric%22%5D");
+                const response = await fetch(`https://api.modrinth.com/v2/project/Jpn0aBDV/version?loaders=%5B%22fabric%22%5D&game_versions=%5B%22${version}%22%5D`);
                 const versions = await response.json();
                 const fabricVersion = versions.find(v => v.loaders.includes("fabric"));
                 if (fabricVersion && fabricVersion.files.length > 0) {
                     window.location.href = fabricVersion.files[0].url;
                 } else {
-                    alert("No Fabric version found!");
+                    alert("No Fabric version found for " + version + "!");
                 }
             } catch (error) {
-                console.error("Error fetching latest version:", error);
-                alert("Failed to fetch latest version. Please try again later.");
+                console.error("Error fetching version:", error);
+                alert("Failed to fetch version. Please try again later.");
             }
         }
     </script>
 </head>
 <body>
     <h1>Download Performa Modpack</h1>
-    <p>Click the button below to download the latest Fabric version of the Performa Modpack Version should be 1.21.4 or 1.21.5 depends on latest Upload.</p>
-    <button class="download-button" onclick="fetchLatestModpack()">Download Latest Performa Modpack</button>
+    <p>Select a version below to download the corresponding Fabric Modpack.</p>
+    <button class="download-button" onclick="fetchModpack('1.21.5')">Download 1.21.5 Fabric</button>
+    <button class="download-button" onclick="fetchModpack('1.21.4')">Download 1.21.4 Fabric</button>
     <br><br>
     <a href="../index.html">Back to Home</a>
 </body>
