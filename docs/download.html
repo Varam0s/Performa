@@ -6,12 +6,15 @@
     <title>Download Performa Modpack</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+       
         body {
             background-color: white;
             color: black;
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 20px;
         }
+
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #121212;
@@ -21,51 +24,109 @@
                 color: #66ccff;
             }
         }
+
+    
         .download-button {
             background-color: #1f883d;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 14px;
             cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+        .download-button:hover {
+            background-color: #16612b;
+        }
+
+        
+        .download-section.grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
             margin-top: 20px;
+        }
+
+        .download-section.list {
+            display: block;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-section.cards .download-card {
+            width: 250px;
+            display: inline-block;
+        }
+
+        .download-section.list .download-card {
+            width: 80%;
+            margin: 10px auto;
+            box-shadow: none;
+            border-bottom: 1px solid gray;
+            padding-bottom: 10px;
+        }
+
+        .download-section.minimal .download-card {
+            background: none;
+            box-shadow: none;
         }
     </style>
     <script>
         async function fetchModpack(version, loader) {
-			try {
-			const response = await fetch(`https://api.modrinth.com/v2/project/Jpn0aBDV/version?loaders=%5B%22${loader}%22%5D&game_versions=%5B%22${version}%22%5D`);
-			const versions = await response.json();
-			const modVersion = versions.find(v => v.loaders.includes(loader));
-			if (modVersion && modVersion.files.length > 0) {
-            window.location.href = modVersion.files[0].url;
-			} else {
-				alert(`No ${loader} version found for ${version}!`);
-			}
-		} catch (error) {
-			console.error("Error fetching version:", error);
-			alert("Failed to fetch version. Please try again later.");
-		}
-	}
+            try {
+                const response = await fetch(`https://api.modrinth.com/v2/project/Jpn0aBDV/version?loaders=["${loader}"]&game_versions=["${version}"]`);
+                const versions = await response.json();
+                const modVersion = versions.find(v => v.loaders.includes(loader));
+
+                if (modVersion && modVersion.files.length > 0) {
+                    window.location.href = modVersion.files[0].url;
+                } else {
+                    alert(`No ${loader} version found for ${version}!`);
+                }
+            } catch (error) {
+                console.error("Error fetching version:", error);
+                alert("Failed to fetch version. Please try again later.");
+            }
+        }
     </script>
 </head>
 <body>
     <h1>Download Performa Modpack</h1>
-    <p>Select a version below to download the corresponding Fabric or Quilt Modpack.</p>
+    <p>Select a version below to download the corresponding Fabric, Quilt, or NeoForge Modpack.</p>
 
-    <!-- Download Buttons for Fabric -->
-    <button class="download-button" onclick="fetchModpack('1.21.5', 'fabric')">Download 1.21.5 Fabric</button>
-    <button class="download-button" onclick="fetchModpack('1.21.4', 'fabric')">Download 1.21.4 Fabric</button>
-
-    <!-- Download Buttons for Quilt -->
-    <button class="download-button" onclick="fetchModpack('1.21.5', 'quilt')">Download 1.21.5 Quilt</button>
-    <button class="download-button" onclick="fetchModpack('1.21.4', 'quilt')">Download 1.21.4 Quilt</button>
-
-    <!-- Download Buttons for NeoForge -->
-    <button class="download-button" onclick="fetchModpack('1.21.5', 'neoforge')">Download 1.21.5 NeoForge</button>
-    <button class="download-button" onclick="fetchModpack('1.21.4', 'neoforge')">Download 1.21.4 NeoForge</button>
     
+    <div class="download-section grid"> 
+        <!-- Fabric -->
+        <div class="download-card">
+            <h2>Fabric</h2>
+            <button class="download-button" onclick="fetchModpack('1.21.5', 'fabric')">Download 1.21.5</button>
+            <button class="download-button" onclick="fetchModpack('1.21.4', 'fabric')">Download 1.21.4</button>
+        </div>
+
+        <!-- Quilt -->
+        <div class="download-card">
+            <h2>Quilt</h2>
+            <button class="download-button" onclick="fetchModpack('1.21.5', 'quilt')">Download 1.21.5</button>
+            <button class="download-button" onclick="fetchModpack('1.21.4', 'quilt')">Download 1.21.4</button>
+        </div>
+
+        <!-- NeoForge -->
+        <div class="download-card">
+            <h2>NeoForge</h2>
+            <button class="download-button" onclick="fetchModpack('1.21.5', 'neoforge')">Download 1.21.5</button>
+            <button class="download-button" onclick="fetchModpack('1.21.4', 'neoforge')">Download 1.21.4</button>
+        </div>
+    </div>
+
     <br><br>
     <a href="../index.html" class="download-button">Back to Home</a>
 </body>
