@@ -1,81 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <style>
-        /* Default body styling */
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Setup Guide – Performa Modpack</title>
+<style>
+    :root {
+        --bg-light: #ffffff;
+        --bg-dark: #121212;
+        --text-light: #000000;
+        --text-dark: #ffffff;
+        --accent: #66ccff;
+        --nav-bg: #333333;
+        --button-bg: #1f883d;
+        --button-hover: #16612b;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-light);
+        transition: background 0.3s, color 0.3s;
+    }
+
+    @media (prefers-color-scheme: dark) {
         body {
-            background-color: black;
-            color: white;  /* Set text color to white for better contrast */
-            font-family: Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
         }
-
-        /* Dark mode styling */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #121212;
-                color: #ffffff;  /* Keep text color white in dark mode */
-            }
-            a {
-                color: #66ccff;
-            }
-        }
-
-        /* Navigation styling */
         nav {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
+            background-color: #1f1f1f;
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+        a {
+            color: var(--accent);
         }
-        nav a:hover {
-            text-decoration: underline;
-        }
+    }
 
-        /* Content styling */
+    header {
+        background: linear-gradient(135deg, var(--nav-bg), #555);
+        padding: 1rem;
+        text-align: center;
+        color: white;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 0.5rem 0;
+        background-color: var(--nav-bg);
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+    nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: var(--button-bg);
+        transition: width 0.3s ease;
+    }
+    nav a:hover {
+        color: var(--button-bg);
+    }
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    #content {
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: rgba(255,255,255,0.8);
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    @media (prefers-color-scheme: dark) {
         #content {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+            background: rgba(18,18,18,0.8);
         }
-    </style>
+    }
+
+    p, li {
+        line-height: 1.6;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    a.button-link {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.6rem 1rem;
+        background: var(--button-bg);
+        color: white;
+        font-weight: bold;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+    a.button-link:hover {
+        background: var(--button-hover);
+    }
+</style>
 </head>
 <body>
-    <nav>
-        <a href="/Performa/index.html">Home</a>
-        <a href="setup.html">Setup Guide</a>
-        <a href="configuration.html">Configuration</a>
-        <a href="performance-tips.html">Performance Tips</a>
-        <a href="download.html">Download</a>
-    </nav>
- <div id="content">
-<h1 id="installation">Installation</h1>
-<h2 id="-download-the-modpack">🔽 Download the Modpack</h2>
-<p>The modpack can be downloaded from <strong><a href="https://modrinth.com/modpack/performa">Modrinth</a></strong>.</p>
-<hr />
-<h2 id="-installing-with-prism-launcher-multimc">🛠 Installing with Prism Launcher, MultiMC, Modrinth APP or GDLauncher</h2>
-<ol>
-<li>Download the <code>.mrpack</code> file.</li>
-<li>Open Prism Launcher, MultiMC or Modrinth APP.</li>
-<li>Click <strong>&quot;Add Instance&quot; → &quot;Import from MRPack/File&quot;</strong>.</li>
-<li>Select the downloaded <code>.mrpack</code> file and start the modpack.</li>
-</ol>
-<hr />
-     <!--
-<h2 id="-curseforge-">✅ Curseforge</h2>
+<header>
+    <h1>Setup Guide</h1>
+</header>
+<nav>
+    <a href="/Performa/index.html">Home</a>
+    <a href="setup.html">Setup Guide</a>
+    <a href="configuration.html">Configuration</a>
+    <a href="performance-tips.html">Performance Tips</a>
+    <a href="download.html">Download</a>
+</nav>
+<div id="content">
+    <h1 id="installation">Installation</h1>
 
-<ol>
-<li><strong>Downlaod the <code>.zip</code> file</strong> you get it from my Wiki-Downlaod category</li>
-    <a href="download.html">Click here!</a>
-<li><strong>Manually install Forge or Fabric</strong>.</li>
-<li><strong>Import it from file.</strong></li>
-</ol>
-     -->
- </div>
+    <h2 id="-download-the-modpack">🔽 Download the Modpack</h2>
+    <p>The modpack can be downloaded from <strong><a href="https://modrinth.com/modpack/performa">Modrinth</a></strong>.</p>
+    <hr />
+
+    <h2 id="-installing-with-prism-launcher-multimc">🛠 Installing with Prism Launcher, MultiMC, Modrinth APP or GDLauncher</h2>
+    <ol>
+        <li>Download the <code>.mrpack</code> file.</li>
+        <li>Open Prism Launcher, MultiMC or Modrinth APP.</li>
+        <li>Click <strong>"Add Instance" → "Import from MRPack/File"</strong>.</li>
+        <li>Select the downloaded <code>.mrpack</code> file and start the modpack.</li>
+    </ol>
+    <hr />
+
+    <!--
+    <h2 id="-curseforge-">✅ Curseforge</h2>
+    <ol>
+        <li><strong>Download the <code>.zip</code> file</strong> you get it from my Wiki-Download category</li>
+        <a href="download.html">Click here!</a>
+        <li><strong>Manually install Forge or Fabric</strong>.</li>
+        <li><strong>Import it from file.</strong></li>
+    </ol>
+    -->
+</div>
+</body>
+</html>
