@@ -1,137 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Performa Modpack Wiki</title>
-<style>
-    :root {
-        --bg-light: #ffffff;
-        --bg-dark: #121212;
-        --text-light: #000000;
-        --text-dark: #ffffff;
-        --accent: #66ccff;
-        --nav-bg: #333333;
-        --button-bg: #1f883d;
-        --button-hover: #16612b;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MossyPacks Wiki</title>
 
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', Arial, sans-serif;
-        background-color: var(--bg-light);
-        color: var(--text-light);
-        transition: background 0.3s, color 0.3s;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
-        }
-        nav {
-            background-color: #1f1f1f;
-        }
-        a {
-            color: var(--accent);
-        }
-    }
-
-    header {
-        background: linear-gradient(135deg, var(--nav-bg), #555);
-        padding: 1rem;
-        text-align: center;
-        color: white;
-    }
-    header h1 {
-        margin: 0;
-        font-size: 2rem;
-    }
-
-    nav {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        padding: 0.5rem 0;
-        background-color: var(--nav-bg);
-    }
-    nav a {
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-        position: relative;
-        transition: color 0.3s ease;
-    }
-    nav a::after {
-        content: "";
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0%;
-        height: 2px;
-        background: var(--button-bg);
-        transition: width 0.3s ease;
-    }
-    nav a:hover {
-        color: var(--button-bg);
-    }
-    nav a:hover::after {
-        width: 100%;
-    }
-
-    #content {
-        max-width: 1000px;
-        margin: 2rem auto;
-        padding: 2rem;
-        background: rgba(255,255,255,0.8);
-        backdrop-filter: blur(6px);
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    @media (prefers-color-scheme: dark) {
-        #content {
-            background: rgba(18,18,18,0.8);
-        }
-    }
-
-    p {
-        line-height: 1.6;
-        text-align: center;
-    }
-
-    .button-link {
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 0.6rem 1rem;
-        background: var(--button-bg);
-        color: white;
-        font-weight: bold;
-        border-radius: 6px;
-        text-decoration: none;
-        transition: background 0.3s;
-    }
-    .button-link:hover {
-        background: var(--button-hover);
-    }
-</style>
+<link rel="stylesheet" href="/MossyPacksModpacks/assets/style.css">
 </head>
 <body>
-<header>
-    <h1>Performa Modpack Wiki</h1>
-</header>
-<nav>
-    <a href="index.html">Home</a>
-    <a href="docs/setup.html">Setup Guide</a>
-    <a href="docs/configuration.html">Configuration</a>
-    <a href="docs/performance-tips.html">Performance Tips</a>
-    <a href="docs/download.html">Download</a>
-</nav>
+
+<div id="navbar"></div>
+<script src="/MossyPacksModpacks/assets/navbar.js"></script>
+
 <div id="content">
-    <p>Welcome to the official documentation for the Performa Modpack!</p>
-    <p>Use the navigation above to access setup instructions, configuration details, and performance tips.</p>
-    <div style="text-align:center;">
-        <a href="https://modrinth.com/modpack/performa" class="button-link">Check Out the Modpacksite</a>
+    <div class="card">
+        <h1>Welcome to MossyPacks Wiki</h1>
+        <p>
+            This is the official hub for all MossyPacks Modpacks.
+            Use the navigation above to explore guides, downloads and performance tips.
+        </p>
     </div>
 </div>
+
 </body>
 </html>
