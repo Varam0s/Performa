@@ -1,123 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <style>
-        /* Default body styling */
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Example Page – MossyPacks</title>
 
-        /* Dark mode styling */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #121212;
-                color: #ffffff;
-            }
-            a {
-                color: #66ccff;
-            }
-        }
+<style>
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Header styling (von setup.html übernommen) */
-        header {
-            background: linear-gradient(135deg, #333, #555);
-            padding: 1rem;
-            text-align: center;
-            color: white;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
+/* ---------- VARIABLES ---------- */
+:root {
+    --bg: #0f1115;
+    --surface: rgba(255,255,255,0.08);
+    --surface-strong: rgba(255,255,255,0.14);
+    --text: #eaeaea;
+    --muted: #b3b3b3;
+    --accent: #66ccff;
+    --radius: 14px;
+}
 
-        /* Navigation styling */
-        nav {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
+/* ---------- BODY ---------- */
+body {
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    background: radial-gradient(circle at top, #1a1d24, #0f1115);
+    color: var(--text);
+    line-height: 1.7;
+}
 
-        /* Content styling */
-        #content {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-        }
-    </style>
+/* ---------- NAVBAR WRAPPER ---------- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.9rem 1.4rem;
+
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ---------- LOGO ---------- */
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* ---------- LINKS ---------- */
+.nav-links {
+    display: flex;
+    gap: 1.3rem;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    padding: 0.2rem 0;
+}
+
+/* Hover underline */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ACTIVE LINK */
+.nav-links a.active {
+    color: var(--accent);
+}
+
+/* ---------- MOBILE MENU BUTTON ---------- */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text);
+}
+
+/* ---------- CONTENT ---------- */
+#content {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: 0 1rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 2rem;
+    backdrop-filter: blur(12px);
+}
+
+/* ---------- MOBILE RESPONSIVE ---------- */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 65px;
+        right: 20px;
+        flex-direction: column;
+        background: rgba(0,0,0,0.75);
+        padding: 1rem;
+        border-radius: var(--radius);
+        display: none;
+        width: 200px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Neuer Header -->
-    <header>
-        <h1>Configuration</h1>
-    </header>
+<!-- ✅ IMPROVED NAVBAR -->
+<div class="navbar">
 
-    <nav>
-        <a href="/Performa/index.html">Home</a>
-        <a href="setup.html">Setup Guide</a>
-        <a href="configuration.html">Configuration</a>
-        <a href="performance-tips.html">Performance Tips</a>
-        <a href="download.html">Download</a>
-    </nav>
-    
-    <div id="content">
-        <h1 id="performa-modpack-configuration">Performa Modpack Configuration</h1>
-        <p>Welcome to the <strong>Performa Modpack Configuration</strong> guide! Here you&#39;ll learn how to customize and configure your modpack for optimal performance.</p>
+    <!-- Logo -->
+    <a href="/MossyPacksModpacks/index.html" class="nav-logo">
+        🌿 MossyPacks
+    </a>
 
-        <h2 id="-configuring-performance-settings-">🛠️ <strong>Configuring Performance Settings</strong></h2>
-        <p>The Performa Modpack is designed for maximum performance, but there are additional settings you can adjust to further optimize your experience.</p>
-        <hr />
-
-        <h3 id="1-graphics-settings-">1. <strong>Graphics Settings</strong></h3>
-        <ul>
-            <li><strong>V-Sync</strong>: Disabling V-Sync can improve FPS, but may cause screen tearing. To disable it, go to <code>Options</code> → <code>Video Settings</code> and turn off V-Sync.</li>
-            <li><strong>Graphics Quality</strong>: In the <code>Video Settings</code> menu, set this to <strong>Fast</strong> for higher FPS.</li>
-            <li><strong>Render Distance</strong>: Recommended 6-8 chunks for best performance.</li>
-        </ul>
-        <hr />
-
-        <h3 id="2-optifine-settings-if-installed-">2. <strong>OptiFine Settings (if installed)</strong></h3>
-        <p>If you are using <strong>OptiFine</strong>, try:</p>
-        <ul>
-            <li><strong>Smooth Lighting</strong>: Off for FPS boost.</li>
-            <li><strong>Performance</strong>: Max FPS.</li>
-            <li><strong>Chunk Loading</strong>: Multi-Core.</li>
-        </ul>
-        <hr />
-
-        <h3 id="3-memory-allocation-">3. <strong>Memory Allocation</strong></h3>
-        <p>To allocate more RAM:</p>
-        <ul>
-            <li>Open Minecraft Launcher.</li>
-            <li>Edit your modpack profile.</li>
-            <li>Under <strong>JVM Arguments</strong>, set <code>-Xmx</code> value (e.g., <code>-Xmx4G</code>).</li>
-        </ul>
-        <p>💡 Recommended: 6–8 GB RAM</p>
-        <hr>
-
-        <h2 id="-troubleshooting-configuration-issues-">❓ <strong>Troubleshooting</strong></h2>
-        <ul>
-            <li><strong>Low FPS</strong>: Lower render distance, disable V-Sync.</li>
-            <li><strong>Game Crashes</strong>: Check logs for mod conflicts, adjust RAM allocation.</li>
-            <li><strong>Lag on World Load</strong>: Reduce world generation settings or disable heavy mods.</li>
-        </ul>
+    <!-- Mobile Button -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        ☰
     </div>
+
+    <!-- Links -->
+    <div class="nav-links" id="navMenu">
+        <a href="/MossyPacksModpacks/index.html">Home</a>
+        <a href="setup.html">Setup</a>
+        <a href="configuration.html" class="active">Configuration</a>
+        <a href="performance-tips.html">Performance</a>
+        <a href="download.html">Download</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+<div id="content">
+    <div class="card">
+        <h1>Example Page</h1>
+        <p style="color: var(--muted); margin-top: 1rem;">
+            This is an example page with the improved MossyPacks navigation bar.
+            The navbar is sticky, has a logo, active link highlighting, and a mobile dropdown menu.
+        </p>
+    </div>
+</div>
+
+<!-- MOBILE MENU SCRIPT -->
+<script>
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("show");
+}
+</script>
+
 </body>
 </html>
